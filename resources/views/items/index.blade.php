@@ -16,7 +16,7 @@
                 <div class="box">
                     <div class="box-body">
                     @if( count($items) == 0)
-                        <table class="table-stripped">
+                        <table class="table table-bordered">
                             <thead>
                                 <th>Nom</th>
                                 <th>Prix</th>
@@ -49,9 +49,8 @@
                                     <td>{{ $item->created_at }}</td>
                                     <td>{{ $item->updated_at }}</td>
                                     <td>
-                                        <a href="/items/view/{{ $item->id }}" class="btn btn-info"><i class="fa fa-eye"></i>Historique</a>
+                                        <a href="/items/{{ $item->id }}" class="btn btn-info"><i class="fa fa-eye"></i>Historique</a>
                                         <a href="/deliveries/add/{{ $item->id }}" class="btn btn-success"><i class="fa fa-plus"></i>Livraison</a>
-                                        <a href="/outputs/view/{{ $item->id }}" class="btn btn-danger"><i class="fa fa-eye"></i>Sortie de stocks</a>
                                     </td>
                                 </tr>
                             @endforeach

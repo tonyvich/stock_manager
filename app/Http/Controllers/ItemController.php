@@ -7,6 +7,17 @@ use App\Item;
 
 class ItemController extends Controller
 {
+
+    /**
+     * Construct
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +58,7 @@ class ItemController extends Controller
         Item::create(request(['name','description','price']));
         
         // Redirecting
-        return redirect('/items/add');
+        return redirect('/items');
     }
 
     /**
@@ -58,7 +69,15 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-        //
+        // Getting the item and it's associate
+        $item = Item::find($id);
+        $deliveries = $item->deliveries;
+
+        // Binding to view
+        return view('items.view',[
+            'item'          =>   $item,
+            'deliveries'    =>   $deliveries
+        ]);
     }
 
     /**

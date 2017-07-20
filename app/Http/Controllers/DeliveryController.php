@@ -4,9 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Item;
+use App\Delivery;
 
 class DeliveryController extends Controller
 {
+    /**
+     * Construct
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +38,7 @@ class DeliveryController extends Controller
     {  
         // Getting the id of the related item 
         $item = Item::find($item);
-        return view('deliveries.create',['item_id' => $item->id]);
+        return view('deliveries.create',['item' => $item]);
     }
 
     /**

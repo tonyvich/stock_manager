@@ -3,14 +3,14 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Ajouter un produit
+            Ajouter une livraison de <strong>{{ $item->name }}</strong>
         </h1>
     </section>
     <section class="content">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 @include('messages.formerrors')
-                <form method="POST" action="/deliveries/{{ $item_id }}">
+                <form method="POST" action="/deliveries/{{ $item->id }}">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label>Date de livraison</label>

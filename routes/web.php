@@ -18,6 +18,9 @@ Route::get('/', function () {
 // Display items
 Route::get('/items', 'ItemController@index');
 
+// Display one item
+Route::get('/items/{item}', 'ItemController@show');
+
 // Display Add items view
 Route::get('/items/add', 'ItemController@create');
 
@@ -29,6 +32,6 @@ Route::get('/deliveries/add/{item}', 'DeliveryController@create');
 
 // Store a delivery
 Route::post('/deliveries/{item}', 'DeliveryController@store');
+Auth::routes();
 
-// Add outputs
-Route::get('/outputs/add/{item}', 'DeliveryController@add');
+Route::get('/home', 'ItemController@index')->name('home');

@@ -1,10 +1,9 @@
-@extends('layout')
-
+@extends('layouts.layout')
 
 @section('content')
     <section class="content-header">
         <h1>
-            @echo $item->name
+            {{ $item->name }}
         </h1>
     </section>
 
@@ -13,7 +12,7 @@
             <div class="col-md-12">
                 <h1>Détails du produits</h1>
                 <hr/>
-                <table class="table-stripped">
+                <table class="table table-bordered">
                     <thead>
                         <th>Nom</th>
                         <th>Prix</th>
@@ -22,29 +21,31 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>@echo item->name()</td>
-                            <td>@echo item->price()</td>
-                            <td>@echo item->created()</td>
-                            <td>@echo item->updated()</td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->price }}</td>
+                            <td>{{ $item->created_at }}</td>
+                            <td>{{ $item->updated_at }}</td>
                         </tr>
                     </tbody>
                 </table>
                 <h1>Livraisons</h1>
-                <hr/>
-                <table class="table-stripped">
+                <hr>
+                <table class="table table-bordered">
                     <thead>
                         <th>Date</th>
                         <th>Livreur</th>
+                        <th>Quantité</th>
                         <th>Créé le</th>
                         <th>Modifié le</th>
                     </thead>
                     <tbody>
                     @foreach ($deliveries as $delivery)
                         <tr>
-                            <td>@echo delivery->date()</td>
-                            <td>@echo delivery->deliver()</td>
-                            <td>@echo delivery->created()</td>
-                            <td>@echo delivery->updated()</td>
+                            <td>{{ $delivery->date }}</td>
+                            <td>{{ $delivery->deliver }}</td>
+                            <td>{{ $delivery->size }}</td>
+                            <td>{{ $delivery->created_at }}</td>
+                            <td>{{ $delivery->updated_at }}</td>
                         </tr>                 
                     @endforeach
                     </tbody>
