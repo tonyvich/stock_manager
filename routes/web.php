@@ -18,11 +18,11 @@ Route::get('/', function () {
 // Display items
 Route::get('/items', 'ItemController@index');
 
-// Display one item
-Route::get('/items/{item}', 'ItemController@show');
-
 // Display Add items view
 Route::get('/items/add', 'ItemController@create');
+
+// Display one item
+Route::get('/items/{item}', 'ItemController@show');
 
 // Save new item
 Route::post('/items', 'ItemController@store');
